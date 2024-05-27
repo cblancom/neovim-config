@@ -6,17 +6,16 @@ return {
     "hrsh7th/cmp-path", -- source for file system paths
     "L3MON4D3/LuaSnip", -- snippet engine
     "saadparwaiz1/cmp_luasnip", -- for autocompletion
-    "rafamadriz/friendly-snippets", -- useful snippets
-     
+    "rafamadriz/friendly-snippets", -- useful snippets    
+    "nvim-neotest/nvim-nio"
     },
   config = function()
     local cmp = require("cmp")
-     
     local luasnip = require("luasnip")
 
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
     require("luasnip.loaders.from_vscode").lazy_load()
-    
+
     cmp.setup({
             completion = {
                 completopt = "menu,menuone,preview,noselect",
@@ -24,7 +23,7 @@ return {
            snippet = { -- configure how nvim-cmp interacts with snippet engine
                 expand = function(args)
                     luasnip.lsp_expand(args.body)
-                end, 
+                end,
             },
             mapping = cmp.mapping.preset.insert({
                 ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion 
@@ -43,6 +42,6 @@ return {
                 { name = "path" }, -- file system paths
             }),
         })
-    end, 
+    end,
 }
 

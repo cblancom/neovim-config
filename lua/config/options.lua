@@ -12,3 +12,5 @@ vim.opt.expandtab = true
 
 -- colorscheme
 vim.cmd.colorscheme = "catppuccin-mocha"
+
+vim.opt.clipboard = "unnamedplus"
