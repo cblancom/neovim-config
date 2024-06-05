@@ -40,7 +40,7 @@ vim.keymap.set("n", "<leader>dt", function() require("dap").toggle_breakpoint() 
 -- Generate comment for current line
 --vim.keymap.set('n', '<Leader>d', '<Plug>(doge-generate)', {})
 
-vim.keymap.set('n', '<leader>d', '<Cmd>DogeGenerator<CR>')
+vim.api.nvim_set_keymap('n', '<leader>dg', '<Cmd>DogeGenerate<CR>', { noremap = true, silent = true })
 
 -- Interactive mode comment todo-jumping
 vim.keymap.set('n', '<TAB>', '<Plug>(doge-comment-jump-forward)')
@@ -49,3 +49,10 @@ vim.keymap.set('i', '<TAB>', '<Plug>(doge-comment-jump-forward)')
 vim.keymap.set('i', '<S-TAB>', '<Plug>(doge-comment-jump-backward)')
 vim.keymap.set('x', '<TAB>', '<Plug>(doge-comment-jump-forward)')
 vim.keymap.set('x', '<S-TAB>', '<Plug>(doge-comment-jump-backward)')
+
+-- Toggle spell language between English and Spanish
+vim.api.nvim_set_keymap('n', '<leader>ss', ':set spelllang=en<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>se', ':set spelllang=es<CR>', { noremap = true, silent = true })
+
+-- Show spelling suggestions for the word under the cursor
+vim.api.nvim_set_keymap('n', '<leader>s', 'z=', { noremap = true, silent = false })
