@@ -10,6 +10,7 @@ return {
 
         -- import mason-lspconfig
         local mason_lspconfig = require("mason-lspconfig")
+        local mason_null_ls = require("mason-null-ls")
 
         mason.setup({
             ui = {
@@ -30,5 +31,13 @@ return {
         -- auto-install configured servers (with lspconfig)
         automatic_installation = true, -- not the same as ensure_installed
         })
+
+        mason_null_ls.setup({
+            ensure_installed = { "black" },
+            automatic_installation = true,
+        })
+    
+
     end,
 }
+
