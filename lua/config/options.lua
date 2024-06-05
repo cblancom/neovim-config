@@ -14,3 +14,12 @@ vim.opt.expandtab = true
 vim.cmd.colorscheme = "catppuccin-mocha"
 
 vim.opt.clipboard = "unnamedplus"
+
+-- spell schecker
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'tex',
+  callback = function()
+    vim.opt_local.spell = true
+    vim.opt_local.spelllang = 'es'
+  end,
+})
